@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const TodoList = ({ todos }) =>
+const TodoList = ({ todos, completeTodo, deleteTodo }) =>
   <div>
     This is a todo list:
     <table>
@@ -16,7 +16,10 @@ const TodoList = ({ todos }) =>
       </thead>
       <tbody>
         {todos.map( (todo,index) =>
-          <Todo todo={todo} key={index} />
+          <Todo todo={todo} key={index}
+            completeTodo={() => completeTodo(index)}
+            deleteTodo={() => deleteTodo(index)}
+          />
         )}
       </tbody>
     </table>
@@ -24,13 +27,13 @@ const TodoList = ({ todos }) =>
 
   </div>
 
-const Todo = ({ todo }) =>
+const Todo = ({ todo, completeTodo, deleteTodo }) =>
   <tr>
     <td>{todo.title}</td>
     <td>{todo.description}</td>
     <td>{todo.date}</td>
-    <td><button>COMPLETE</button></td>
-    <td><button>DELETE</button></td>
+    <td><button onClick={() => completeTodo()}>COMPLETE</button></td>
+    <td><button onClick={() => deleteTodo()}>DELETE</button></td>
   </tr>
 
 const mapStateToProps = state => ({ todos: state })
