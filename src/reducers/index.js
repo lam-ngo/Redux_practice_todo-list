@@ -7,13 +7,15 @@ export const todoReducer = (state = [
 ], action) => {
   switch (action.type) {
     case 'COMPLETE_TODO':
-      console.log('COMPLETE_TODO');
-      return state;
+      const completeIndex = action.payload;
+      console.log(`COMPLETE_TODO with index ${completeIndex}`);
+      return [ ...state.slice(0, completeIndex), ...state.slice(completeIndex+1)];
     case 'DELETE_TODO':
-      console.log('DELETE_TODO');
-      return state;
+      const deleteIndex = action.payload;
+      console.log(`DELETE_TODO with index ${deleteIndex}`);
+      return [ ...state.slice(0, deleteIndex), ...state.slice(deleteIndex+1)];
     case 'ADD_TODO':
-      console.log('ADD_TODO');
+      console.log(`ADD_TODO`);
       return state;
     default:
       return state;
