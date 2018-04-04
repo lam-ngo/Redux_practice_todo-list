@@ -1,23 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import AddTodo from '../containers/AddTodo';
 
-const TodoList = ({ todos, addTodo, completeTodo, deleteTodo }) =>
+const TodoList = ({ todos, completeTodo, deleteTodo }) =>
   <div>
-    <h3>Add a new todo:</h3>
-    <div>
-      <input type="text" placeholder="Title"></input>
-      <input type="text" placeholder="Description"></input>
-      <input type="date"></input>
-      <button
-        onClick={() => addTodo({
-          title: "New title",
-          description: "This is a new todo",
-          date: "New date"
-        })}>
-        ADD
-      </button>
-    </div>
-
+    <AddTodo />
     <h3>Todo list:</h3>
     <table>
       <thead>
@@ -52,7 +39,6 @@ const Todo = ({ todo, completeTodo, deleteTodo }) =>
 const mapStateToProps = state => ({ todos: state })
 
 const mapDispatchToProps = dispatch => ({
-  addTodo: newTodo => dispatch({ type: 'ADD_TODO', payload: newTodo }),
   completeTodo: index => dispatch({ type: 'COMPLETE_TODO', payload: index}),
   deleteTodo: index => dispatch({ type: 'DELETE_TODO', payload: index}),
 })
