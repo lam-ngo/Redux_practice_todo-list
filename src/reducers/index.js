@@ -15,8 +15,8 @@ export const todoReducer = (state = [
       console.log(`DELETE_TODO with index ${deleteIndex}`);
       return [ ...state.slice(0, deleteIndex), ...state.slice(deleteIndex+1)];
     case 'ADD_TODO':
-      console.log(`ADD_TODO`);
-      return state;
+      console.log(`ADD_TODO with details ${action.payload}`);
+      return [ ...state, action.payload];
     default:
       return state;
   }
