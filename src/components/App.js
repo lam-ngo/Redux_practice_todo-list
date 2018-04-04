@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const TodoList = ({ todos, completeTodo, deleteTodo }) =>
+const TodoList = ({ todos, addTodo, completeTodo, deleteTodo }) =>
   <div>
-    This is a todo list:
+    <h3>Add a new todo:</h3>
+    <div>
+      <input type="text" placeholder="Title"></input>
+      <input type="text" placeholder="Description"></input>
+      <input type="date"></input>
+      <button
+        onClick={() => addTodo({
+          title: "New title",
+          description: "This is a new todo",
+          date: "New date"
+        })}>
+        ADD
+      </button>
+    </div>
+
+    <h3>Todo list:</h3>
     <table>
       <thead>
         <tr>
@@ -23,8 +38,6 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) =>
         )}
       </tbody>
     </table>
-    Add a new todo:
-
   </div>
 
 const Todo = ({ todo, completeTodo, deleteTodo }) =>
@@ -39,9 +52,9 @@ const Todo = ({ todo, completeTodo, deleteTodo }) =>
 const mapStateToProps = state => ({ todos: state })
 
 const mapDispatchToProps = dispatch => ({
+  addTodo: newTodo => dispatch({ type: 'ADD_TODO', payload: newTodo }),
   completeTodo: index => dispatch({ type: 'COMPLETE_TODO', payload: index}),
   deleteTodo: index => dispatch({ type: 'DELETE_TODO', payload: index}),
-  addTodo: newTodo => dispatch({ type: 'ADD_TODO', payload: newTodo }),
 })
 
 const App = connect(mapStateToProps, mapDispatchToProps)(TodoList);
