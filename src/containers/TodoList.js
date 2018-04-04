@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Todo from '../components/Todo';
 
 const TodoList = ({ todos, completeTodo, deleteTodo }) =>
   <div>
@@ -24,15 +25,6 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) =>
       </tbody>
     </table>
   </div>
-
-const Todo = ({ todo, completeTodo, deleteTodo }) =>
-  <tr>
-    <td>{todo.title}</td>
-    <td>{todo.description}</td>
-    <td>{todo.date}</td>
-    <td><button onClick={() => completeTodo()}>COMPLETE</button></td>
-    <td><button onClick={() => deleteTodo()}>DELETE</button></td>
-  </tr>
 
 const mapStateToProps = state => ({ todos: state })
 
