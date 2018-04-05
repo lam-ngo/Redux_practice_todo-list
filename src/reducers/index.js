@@ -1,4 +1,6 @@
-export const todoReducer = (state = [
+import { combineReducers } from 'redux';
+
+const todoReducer = (state = [
   { title: "Title 1", description: "This is todo 1", date: "Date 1"},
   { title: "Title 2", description: "This is todo 2", date: "Date 2"},
   { title: "Title 3", description: "This is todo 3", date: "Date 3"},
@@ -21,3 +23,7 @@ export const todoReducer = (state = [
       return state;
   }
 };
+
+export default combineReducers({
+  todoList: todoReducer,
+});

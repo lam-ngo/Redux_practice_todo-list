@@ -26,7 +26,7 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) =>
     </table>
   </div>
 
-const mapStateToProps = state => ({ todos: state })
+const mapStateToProps = state => ({ todos: state.todoList })
 
 const mapDispatchToProps = dispatch => ({
   completeTodo: index => dispatch({ type: 'COMPLETE_TODO', payload: index}),
