@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Todo from '../components/Todo';
+import { todoList_add, doneList_remove } from '../actions';
 
 const DoneList = ({ doneTodos, undoTodo, deleteTodo }) =>
   <div>
@@ -20,7 +21,10 @@ const DoneList = ({ doneTodos, undoTodo, deleteTodo }) =>
           <Todo todo={todo} key={index}
             button1="UNDO"
             button2="DELETE"
-            function1={() => undoTodo(index)}
+            function1={() => {
+              undoTodo(todo)
+              deleteTodo(index)
+            }}
             function2={() => deleteTodo(index)}
           />
         )}
@@ -31,8 +35,8 @@ const DoneList = ({ doneTodos, undoTodo, deleteTodo }) =>
 const mapStateToProps = state => ({ doneTodos: state.doneList })
 
 const mapDispatchToProps = dispatch => ({
-  undoTodo: index => dispatch({ type: 'UNDO_TODO', payload: index}),
-  deleteTodo: index => dispatch({ type: 'DELETE_TODO', payload: index}),
+  undoTodo: todo => dispatch(todoList_add(todo)),
+  deleteTodo: index => dispatch(doneList_remove(index)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DoneList);
