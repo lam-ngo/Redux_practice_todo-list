@@ -1,5 +1,6 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
+import { todoList_add } from '../actions';
 
 const AddTodo = ({ dispatch }) => {
   let title = { value: ''}, description = { value: ''}, date = { value: ''}
@@ -14,14 +15,7 @@ const AddTodo = ({ dispatch }) => {
               alert('No field should be empty!')
               return
             }
-            dispatch({
-              type: 'ADD_TODO',
-              payload: {
-                title: title.value,
-                description: description.value,
-                date: date.value
-              }
-            })
+            dispatch(todoList_add( title.value, description.value, date.value))
             title.value = ''
             description.value = ''
             date.value = ''
