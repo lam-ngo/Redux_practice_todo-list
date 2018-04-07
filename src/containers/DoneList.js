@@ -28,7 +28,7 @@ const DoneList = ({ doneTodos, undoTodo, deleteTodo }) =>
     </table>
   </div>
 
-const mapStateToProps = state => ({ doneTodos: state.todoList })
+const mapStateToProps = state => ({ doneTodos: state.doneList })
 
 const mapDispatchToProps = dispatch => ({
   undoTodo: index => dispatch({ type: 'UNDO_TODO', payload: index}),
