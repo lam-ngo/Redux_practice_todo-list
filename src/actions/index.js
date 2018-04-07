@@ -1,30 +1,24 @@
-export const ADD_TODO = 'ADD_TODO';
-export const TODOLIST_COMPLETE = 'TODOLIST_COMPLETE';
-export const TODOLIST_DELETE = 'TODOLIST_DELETE';
-export const DONELIST_UNDO = 'DONELIST_UNDO';
-export const DONELIST_DELETE = 'DONELIST_DELETE';
+export const TODOLIST_ADD = 'TODOLIST_ADD';
+export const TODOLIST_REMOVE = 'TODOLIST_REMOVE';
+export const DONELIST_ADD = 'DONELIST_ADD';
+export const DONELIST_REMOVE = 'DONELIST_REMOVE';
 
-export const addTodo = (title, description, date) => ({
-  type: ADD_TODO,
-  payload: { title, description, date }
+export const todoList_add = (title, description, date) => ({
+  type: TODOLIST_ADD,
+  payload: { title, description, date },
 })
 
-export const todoList_complete = index => ({
-  type: TODOLIST_COMPLETE,
+export const todoList_remove = index => ({
+  type: TODOLIST_REMOVE,
   payload: index,
 });
 
-export const todoList_delete = index => ({
-  type: TODOLIST_DELETE,
-  payload: index,
+export const doneList_add = (title, description, date) => ({
+  type: DONELIST_ADD,
+  payload: { title, description, date },
 });
 
-export const doneList_undo = index => ({
-  type: DONELIST_UNDO,
-  payload: index,
-});
-
-export const doneList_delete = index => ({
-  type: DONELIST_DELETE,
+export const doneList_remove = index => ({
+  type: DONELIST_REMOVE,
   payload: index,
 });

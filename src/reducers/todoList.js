@@ -1,21 +1,14 @@
-const todoList = (state = [
-  { title: "Title 1", description: "This is todo 1", date: "2018-04-07"},
-  { title: "Title 2", description: "This is todo 2", date: "2018-04-07"},
-  { title: "Title 3", description: "This is todo 3", date: "2018-04-07"},
-  { title: "Title 4", description: "This is todo 4", date: "2018-04-07"},
-  { title: "Title 5", description: "This is todo 5", date: "2018-04-07"},
-], action) => {
+import { todoList as todos } from '../data';
+import { TODOLIST_ADD, TODOLIST_REMOVE } from '../actions';
+
+const todoList = (state = todos, action) => {
   switch (action.type) {
-    case 'COMPLETE_TODO':
-      const completeIndex = action.payload;
-      console.log(`COMPLETE_TODO with index ${completeIndex}`);
-      return [ ...state.slice(0, completeIndex), ...state.slice(completeIndex+1)];
-    case 'DELETE_TODO':
-      const deleteIndex = action.payload;
-      console.log(`DELETE_TODO with index ${deleteIndex}`);
-      return [ ...state.slice(0, deleteIndex), ...state.slice(deleteIndex+1)];
-    case 'ADD_TODO':
-      console.log(`ADD_TODO with details ${action.payload}`);
+    case TODOLIST_REMOVE:
+      const removeIndex = action.payload;
+      console.log(`TODOLIST_REMOVE with index ${removeIndex}`);
+      return [ ...state.slice(0, removeIndex), ...state.slice(removeIndex+1)];
+    case TODOLIST_ADD:
+      console.log(`TODOLIST_ADD with details ${action.payload}`);
       return [ ...state, action.payload];
     default:
       return state;
