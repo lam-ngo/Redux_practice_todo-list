@@ -3,9 +3,9 @@ export const TODOLIST_REMOVE = 'TODOLIST_REMOVE';
 export const DONELIST_ADD = 'DONELIST_ADD';
 export const DONELIST_REMOVE = 'DONELIST_REMOVE';
 
-export const todoList_add = (title, description, date) => ({
+export const todoList_add = todo => ({
   type: TODOLIST_ADD,
-  payload: { title, description, date },
+  payload: todo,
 })
 
 export const todoList_remove = index => ({
@@ -13,9 +13,9 @@ export const todoList_remove = index => ({
   payload: index,
 });
 
-export const doneList_add = (title, description, date) => ({
+export const doneList_add = todo => ({
   type: DONELIST_ADD,
-  payload: { title, description, date },
+  payload: todo,
 });
 
 export const doneList_remove = index => ({

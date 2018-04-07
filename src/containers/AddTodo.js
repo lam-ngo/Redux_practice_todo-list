@@ -15,7 +15,11 @@ const AddTodo = ({ dispatch }) => {
               alert('No field should be empty!')
               return
             }
-            dispatch(todoList_add( title.value, description.value, date.value))
+            dispatch(todoList_add({
+              title: title.value,
+              description: description.value,
+              date: date.value
+            }))
             title.value = ''
             description.value = ''
             date.value = ''
