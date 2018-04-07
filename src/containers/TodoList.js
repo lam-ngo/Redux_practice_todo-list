@@ -18,8 +18,10 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) =>
       <tbody>
         {todos.map( (todo,index) =>
           <Todo todo={todo} key={index}
-            completeTodo={() => completeTodo(index)}
-            deleteTodo={() => deleteTodo(index)}
+            button1="COMPLETE"
+            button2="DELETE"
+            function1={() => completeTodo(index)}
+            function2={() => deleteTodo(index)}
           />
         )}
       </tbody>
