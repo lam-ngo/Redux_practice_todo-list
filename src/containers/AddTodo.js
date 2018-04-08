@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { todoList_add } from '../actions';
+import { Container, Input, Button } from '../styles';
 
 const AddTodo = ({ dispatch }) => {
   let title = { value: ''}, description = { value: ''}, date = { value: ''}
 
   return (
-    <div>
-      <h3>Add a new todo:</h3>
+    <div style={Container}>
+      <h3>Add a new todo</h3>
       <div>
         <form onSubmit={e => {
             e.preventDefault()
@@ -24,10 +25,13 @@ const AddTodo = ({ dispatch }) => {
             description.value = ''
             date.value = ''
           }}>
-          <input type="text" placeholder="Title" ref={node => title = node}></input>
-          <input type="text" placeholder="Description" ref={node => description = node}></input>
-          <input type="date" ref={node => date = node}></input>
-          <button type="submit">ADD</button>
+          <input type="text" style={Input} placeholder="Title"
+            ref={node => title = node}></input>
+          <input type="text" style={Input} placeholder="Description"
+            ref={node => description = node}></input>
+          <input type="date" style={Input}
+            ref={node => date = node}></input>
+          <button style={Button} type="submit">ADD</button>
         </form>
       </div>
     </div>

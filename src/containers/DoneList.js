@@ -2,18 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Todo from '../components/Todo';
 import { todoList_add, doneList_remove } from '../actions';
+import { Container, Table } from '../styles';
 
 const DoneList = ({ doneTodos, undoTodo, deleteTodo }) =>
-  <div>
-    <h3>Done todo list:</h3>
-    <table>
+  <div style={Container}>
+    <h3>Completed todos</h3>
+    <table style={Table.table}>
       <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Date</th>
-          <th></th>
-          <th></th>
+        <tr style={Table.row}>
+          <th style={Table.column_title}>Title</th>
+          <th style={Table.column_description}>Description</th>
+          <th style={Table.column_date}>Date</th>
+          <th style={Table.column_button}></th>
+          <th style={Table.column_button}></th>
         </tr>
       </thead>
       <tbody>
