@@ -1,24 +1,24 @@
-export const TODOLIST_ADD = 'TODOLIST_ADD';
-export const TODOLIST_REMOVE = 'TODOLIST_REMOVE';
-export const DONELIST_ADD = 'DONELIST_ADD';
-export const DONELIST_REMOVE = 'DONELIST_REMOVE';
+export const TODO_ADD = 'TODO_ADD';
+export const TODO_COMPLETE = 'TODO_COMPLETE';
+export const TODO_UNDO = 'TODO_UNDO';
+export const TODO_DELETE = 'TODO_DELETE';
 
-export const todoList_add = todo => ({
-  type: TODOLIST_ADD,
+export const todo_add = todo => ({
+  type: TODO_ADD,
   payload: todo,
 })
 
-export const todoList_remove = index => ({
-  type: TODOLIST_REMOVE,
-  payload: index,
+export const todo_complete = id => ({
+  type: TODO_COMPLETE,
+  payload: id,
 });
 
-export const doneList_add = todo => ({
-  type: DONELIST_ADD,
-  payload: todo,
+export const todo_undo = id => ({
+  type: TODO_UNDO,
+  payload: id,
 });
 
-export const doneList_remove = index => ({
-  type: DONELIST_REMOVE,
-  payload: index,
+export const todo_delete = id => ({
+  type: TODO_DELETE,
+  payload: id,
 });
